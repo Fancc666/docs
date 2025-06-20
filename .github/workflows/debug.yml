@@ -1,17 +1,17 @@
 # 工作流名称
-name: "Build and Deploy"
+name: "Debug"
 
 # 启动条件
 on:
-  push: # 当有代码推送到仓库时触发
-    branches:
-      - main
-      - master
-    paths-ignore:
-      - .github
-      - .gitignore
-      - README.md
-      - LICENSE
+#   push: # 当有代码推送到仓库时触发
+#     branches:
+#       - main
+#       - master
+#     paths-ignore:
+#       - .github
+#       - .gitignore
+#       - README.md
+#       - LICENSE
   workflow_dispatch: # 手动触发工作流
 
 # 工作流权限
@@ -21,7 +21,7 @@ permissions:
 
 # 工作流归入pages组，一组工作流只能有一个处于运行状态
 concurrency:
-  group: "work"
+  group: "debug"
   cancel-in-progress: true
 
 # 工作流
@@ -55,18 +55,5 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: 565455docs-htmlfiles
-          path: './build/html'
-
-      - name: Deploy
-        uses: cross-the-world/scp-pipeline@master
-        env:
-          WELCOME: "ssh scp ssh pipelines"
-          LASTSSH: "Doing something after copying"
-        with:
-         host: ${{ secrets.MY_HOST }}
-         user: ${{ secrets.MY_USER }}
-         pass: ${{ secrets.MY_PASS }}
-         connect_timeout: 10s
-         local: './build/html/*'
-         remote: /www/wwwroot/565455.xyz/docs
+          name: 565455docs-debugfiles
+          path: './build/html/searchindex.js'

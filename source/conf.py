@@ -29,6 +29,11 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 language = 'zh_CN'
+source_encoding = 'utf-8-sig'
+html_search_language = 'zh'
+html_search_options = {
+    'type': 'default',
+}
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
