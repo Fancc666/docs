@@ -1,0 +1,49 @@
+# 工作流名称
+name: "Build and Deploy"
+
+# 启动条件
+on:
+  # push: # 当有代码推送到仓库时触发
+  #   branches:
+  #     - main
+  #     - master
+  #   paths-ignore:
+  #     - .github
+  #     - .gitignore
+  #     - README.md
+  #     - LICENSE
+  workflow_dispatch: # 手动触发工作流
+
+# 工作流权限
+permissions:
+  contents: read
+  id-token: write
+
+# 工作流归入pages组，一组工作流只能有一个处于运行状态
+concurrency:
+  group: "work"
+  cancel-in-progress: true
+
+# 工作流
+jobs:
+  # 构建并部署
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout # 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 拉取所有分支
+      
+      - name: Deploy
+        uses: cross-the-world/scp-pipeline@master
+        env:
+          WELCOME: "ssh scp ssh pipelines"
+          LASTSSH: "Doing something after copying"
+        with:
+         host: ${{ secrets.MY_HOST }}
+         user: ${{ secrets.MY_USER }}
+         pass: ${{ secrets.MY_PASS }}
+         connect_timeout: 10s
+         local: './test.txt'
+         remote: /root/FANCC/testdocs
