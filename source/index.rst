@@ -13,6 +13,8 @@
 
 本文档使用 `Sphinx <https://www.sphinx-doc.org/en/master/>`_ 构建，托管在565455服务器。
 
+所有文档开源于Github，仓库链接： `https://github.com/Fancc666/docs <https://github.com/Fancc666/docs>`_ 。
+
 主页使用的rst编写，其他页面使用的markdown编写。FANCC于2025年6月。
 
    ..    :glob:
