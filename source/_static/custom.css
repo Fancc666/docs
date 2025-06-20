@@ -1,0 +1,34 @@
+/* 关闭 查看源码 按钮 */
+.wy-breadcrumbs-aside{
+    display: none !important;
+}
+/* 移动端 侧边栏动画 */
+.wy-grid-for-nav{
+    overflow-x: hidden;
+}
+.wy-nav-side{
+    transition: left 0.5s;
+}
+@media screen and (max-width: 768px) {
+    .wy-nav-content-wrap {
+        margin-left: 0;
+        left: 0;
+        position: relative;
+    }
+}
+.wy-nav-content-wrap{
+    transition: left 0.5s;
+}
+/* 引用内容样式 */
+.rst-content blockquote {
+    position: relative;
+    color: gray;
+}
+.rst-content blockquote:before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background-color: gainsboro;
+    left: -24px;
+}
