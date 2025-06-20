@@ -52,8 +52,13 @@ jobs:
         run: |
           make html
       
+      - name: Generate temp file directory
+        run: |
+          mkdir temp
+          cp ./build/html/searchindex.js temp
+      
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           name: 565455docs-debugfiles
-          path: './build/html/searchindex.js'
+          path: './temp'
