@@ -9,12 +9,12 @@
 project = '565455手册'
 copyright = '2025, FANCC'
 author = 'FANCC'
-release = '0.1.2'
+release = '0.1.3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx_rtd_theme', 'myst_parser']
+extensions = ['sphinx_rtd_theme', 'myst_parser', 'sphinx_copybutton']
 source_suffix = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
